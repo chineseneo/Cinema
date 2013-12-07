@@ -1,11 +1,16 @@
 package com.ZDYX.cinema;
 
+import java.util.HashMap;
+
 public class MovieType {
-    private static final double UNIT_PRICE_2D = 30D;
-    public static final double UNIT_PRICE_3D = 60D;
-    public static final String MOVIE_TYPE_2D = "2D";
+    private static HashMap<String, Double> unitPriceList = new HashMap<String, Double>();
+
+    static {
+        unitPriceList.put("2D", 30D);
+        unitPriceList.put("3D", 60D);
+    }
 
     public double getUnitPrice(String movieType) {
-        return MOVIE_TYPE_2D.equals(movieType)? UNIT_PRICE_2D: UNIT_PRICE_3D;
+        return unitPriceList.get(movieType);
     }
 }

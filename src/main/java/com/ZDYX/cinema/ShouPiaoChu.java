@@ -1,6 +1,6 @@
 package com.ZDYX.cinema;
 
-public class Cinema {
+public class ShouPiaoChu {
 
     public Double getPriceFor2DMovieAndCashPayment(int numberOfTicket) {
         return getPrice(numberOfTicket, "2D", "cash");

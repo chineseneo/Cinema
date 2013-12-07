@@ -1,11 +1,16 @@
 package com.ZDYX.cinema;
 
+import java.util.HashMap;
+
 public class PaymentType {
-    public static final double DISCOUNT_FOR_CARD = 0.8;
-    public static final String PAYMENT_TYPE_CASH = "cash";
-    public static final int DISCOUNT_FOR_CASH = 1;
+    private static HashMap<String, Double> discountList = new HashMap<String, Double>();
+
+    static {
+        discountList.put("cash", 1.0D);
+        discountList.put("card", 0.8D);
+    }
 
     public double getDiscount(String paymentType) {
-        return PAYMENT_TYPE_CASH.equals(paymentType)? DISCOUNT_FOR_CASH: DISCOUNT_FOR_CARD;
+        return discountList.get(paymentType);
     }
 }
