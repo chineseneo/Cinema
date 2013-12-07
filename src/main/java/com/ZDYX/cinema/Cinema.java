@@ -21,24 +21,10 @@ public class Cinema {
     }
 
     private double getUnitPrice(String movieType) {
-        double unitPrice;
-        if (MOVIE_TYPE_2D.equals(movieType)) {
-            unitPrice = UNIT_PRICE_2D;
-        }
-        else {
-            unitPrice = UNIT_PRICE_3D;
-        }
-        return unitPrice;
+        return MOVIE_TYPE_2D.equals(movieType)? UNIT_PRICE_2D: UNIT_PRICE_3D;
     }
 
     private double getDiscount(String paymentType) {
-        double discount;
-        if (PAYMENT_TYPE_CASH.equals(paymentType)) {
-            discount = DISCOUNT_FOR_CASH;
-        }
-        else {
-            discount = DISCOUNT_FOR_CARD;
-        }
-        return discount;
+        return PAYMENT_TYPE_CASH.equals(paymentType)? DISCOUNT_FOR_CASH: DISCOUNT_FOR_CARD;
     }
 }
