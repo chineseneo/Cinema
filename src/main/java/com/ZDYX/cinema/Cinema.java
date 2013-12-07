@@ -8,14 +8,11 @@ public class Cinema {
     public static final String PAYMENT_TYPE_CASH = "cash";
 
     public Double getPriceFor2DMovieAndCashPayment(int numberOfTicket) {
-        return UNIT_PRICE_2D * numberOfTicket;
+        return getPrice(numberOfTicket, "2D", "cash");
     }
 
     public Double getPriceForCashPayment(int numberOfTicket, String movieType) {
-        if (MOVIE_TYPE_2D.equals(movieType)) {
-            return UNIT_PRICE_2D * numberOfTicket;
-        }
-        return UNIT_PRICE_3D * numberOfTicket;
+        return getPrice(numberOfTicket, movieType, "cash");
     }
 
     public Double getPrice(int numberOfTicket, String movieType, String card) {
