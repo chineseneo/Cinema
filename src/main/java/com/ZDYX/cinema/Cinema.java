@@ -17,13 +17,10 @@ public class Cinema {
     }
 
     public Double getPrice(int numberOfTicket, String movieType, String card) {
-        double discount;
-        if (PAYMENT_TYPE_CASH.equals(card)) {
-            discount = DISCOUNT_FOR_CASH;
-        }
-        else {
-            discount = DISCOUNT_FOR_CARD;
-        }
+        return getUnitPrice(movieType) * getDiscount(card) * numberOfTicket;
+    }
+
+    private double getUnitPrice(String movieType) {
         double unitPrice;
         if (MOVIE_TYPE_2D.equals(movieType)) {
             unitPrice = UNIT_PRICE_2D;
@@ -31,6 +28,17 @@ public class Cinema {
         else {
             unitPrice = UNIT_PRICE_3D;
         }
-        return unitPrice * discount * numberOfTicket;
+        return unitPrice;
+    }
+
+    private double getDiscount(String paymentType) {
+        double discount;
+        if (PAYMENT_TYPE_CASH.equals(paymentType)) {
+            discount = DISCOUNT_FOR_CASH;
+        }
+        else {
+            discount = DISCOUNT_FOR_CARD;
+        }
+        return discount;
     }
 }
